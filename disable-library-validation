@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+print_usage() {
+  echo "Usage:"
+  echo "  $(basename $0) <app>"
+}
+
+if [[ $# -lt 1 ]]; then
+  echo "Error: Application path required"
+  echo
+
+  print_usage
+  exit 1
+fi
+
+APPLICATION="$1"
+TMP_ENTITLEMENTS_FILE="/tmp/entitlements-$$.xml"
+
+if [[ ! -e "$APPLICATION" ]]; then
+  echo "Error: Cannot find application '${APPLICATION}'"
+  echo
+
+  print_usage
+  exit 1
+fi
+
+sudo -v
+
+codesign -d --entitlements :- "${APPLICATION}" |
+  { xml2; echo "/plist/dict/key=com.apple.security.cs.disable-library-validation"; echo "/plist/dict/true"; } |
+  2xml > "${TMP_ENTITLEMENTS_FILE}" &&
+codesign --entitlements="${TMP_ENTITLEMENTS_FILE}" --sign - "${APPLICATION}" --force --preserve-metadata=identifier,resource-rules,flags &&
+rm -f "${TMP_ENTITLEMENTS_FILE}"

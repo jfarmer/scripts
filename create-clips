@@ -1,0 +1,26 @@
+#!/bin/sh
+
+print_usage() {
+  echo ""
+  echo "Usage:"
+  echo "  $(basename $0) <timestamp-file>"
+}
+
+if [[ $# -lt 1 ]]; then
+  echo "Please specify a timestamp file"
+  print_usage
+  exit 1
+fi
+
+INPUT_FILE="${1}"
+
+if [[ ! -e "${INPUT_FILE}" ]]; then
+  echo "No such file: '${INPUT_FILE}'"
+  print_usage
+  exit 1
+fi
+
+# Timestamp file should have one timestamp per line, alternating
+# between start of clip and end of clip
+
+xargs -n 2 bash -c "echo ffmpeg -i \'${INPUT_FILE}\' -ss \$0 -to \$1 -c copy -y clip_\$0_\$1.mp4"
