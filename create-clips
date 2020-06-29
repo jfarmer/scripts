@@ -23,4 +23,4 @@ fi
 # Timestamp file should have one timestamp per line, alternating
 # between start of clip and end of clip
 
-xargs -n 2 bash -c "echo ffmpeg -i \'${INPUT_FILE}\' -ss \$0 -to \$1 -c copy -y clip_\$0_\$1.mp4"
+xargs -n 2 bash -c "echo ffmpeg -i \'\"${INPUT_FILE}\"\' -ss \$0 -to \$1 -c copy -y clip_\$0_\$1.mp4"
