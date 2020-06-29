@@ -3,10 +3,10 @@
 print_usage() {
   echo ""
   echo "Usage:"
-  echo "  $(basename $0) <timestamp-file>"
+  echo "  $(basename "$0") <timestamp-file>"
 }
 
-if [[ $# -lt 1 ]]; then
+if [ $# -lt 1 ]; then
   echo "Please specify a timestamp file"
   print_usage
   exit 1
@@ -14,7 +14,7 @@ fi
 
 INPUT_FILE="${1}"
 
-if [[ ! -e "${INPUT_FILE}" ]]; then
+if [ ! -e "${INPUT_FILE}" ]; then
   echo "No such file: '${INPUT_FILE}'"
   print_usage
   exit 1
