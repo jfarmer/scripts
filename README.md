@@ -2,6 +2,16 @@
 
 Just some miscellaneous scripts I use from time to time.
 
+## wifi-strength
+
+Print out S/N ratio of current WiFi network using macOS's built-in `airport` command-line tool.
+
+Useful to combine with `say` and `watch` to find dead spots in your house/apartment, e.g.,
+
+```console
+watch -n1 'wifi-stength | say'
+```
+
 ## create-clips
 
 Use `ffmpeg` to extract clips from a larger movie. Before running, make sure to install `ffmpeg`.
@@ -26,14 +36,4 @@ Remove library validation from specified application on macOS. You can use this 
 
 ```console
 disable-library-validation /Applications/zoom.us.app
-```
-
-## wifi-strength
-
-Print out S/N ratio of current WiFi network using macOS's built-in `airport` command-line tool.
-
-Useful to combine with `say` and `watch` to find dead spots in your house/apartment, e.g.,
-
-```console
-watch -n1 'wifi-stength | say'
 ```
