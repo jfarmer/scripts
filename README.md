@@ -1,5 +1,7 @@
 # Misc. Scripts
 
+Just some miscellaneous scripts I use from time to time.
+
 ## create-clips
 
 Use `ffmpeg` to extract clips from a larger movie. Before running, make sure to install `ffmpeg`.
