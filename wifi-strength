@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+AIRPORT_BIN="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+
+"$AIRPORT_BIN" -I | grep -E 'agrCtlRSSI|agrCtlNoise' | awk '{print $2}' | sed -e 'N;s/\n/ - /' | bc
