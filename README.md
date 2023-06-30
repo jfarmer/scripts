@@ -22,6 +22,8 @@ If you want to do this manually, edit `/etc/pam.d/sudo` and make sure the first 
 auth       sufficient     pam_tid.so
 ```
 
+I don't know whether alignment matters, but when in Rome.
+
 ## compress-pdf
 
 Use ghostscript (the `gs` command) to compress PDFs using "ebook" compression for quality.
