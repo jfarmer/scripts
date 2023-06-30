@@ -1,6 +1,6 @@
 # Misc. Scripts
 
-Just some miscellaneous scripts I use from time to time.
+Some miscellaneous scripts I use from time to time, too small to justify their own repository.
 
 ## Scripts <!-- omit in toc -->
 
