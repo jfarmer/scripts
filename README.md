@@ -2,6 +2,14 @@
 
 Just some miscellaneous scripts I use from time to time.
 
+## Scripts <!-- omit in toc -->
+
+- [tid-terminal](#tid-terminal)
+- [compress-pdf](#compress-pdf)
+- [wifi-strength](#wifi-strength)
+- [create-clips](#create-clips)
+- [disable-library-validation](#disable-library-validation)
+
 ## tid-terminal
 
 Enable Touch ID authentication with sudo. The script uses macOS's built-in `bioutil` to check whether Touch ID is available. If so, it enables Touch ID authentication for `sudo` commands.
@@ -13,6 +21,10 @@ If you want to do this manually, edit `/etc/pam.d/sudo` and make sure the first 
 ```text
 auth       sufficient     pam_tid.so
 ```
+
+## compress-pdf
+
+Use ghostscript (the `gs` command) to compress PDFs using "ebook" compression for quality.
 
 ## wifi-strength
 
