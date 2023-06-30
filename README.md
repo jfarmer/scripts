@@ -26,6 +26,10 @@ auth       sufficient     pam_tid.so
 
 Use ghostscript (the `gs` command) to compress PDFs using "ebook" compression for quality.
 
+```console
+compress-pdf ./big-paper.pdf ./compressed-paper.pdf
+```
+
 ## wifi-strength
 
 Print out S/N ratio of current WiFi network using macOS's built-in `airport` command-line tool.
