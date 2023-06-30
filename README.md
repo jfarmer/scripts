@@ -2,6 +2,18 @@
 
 Just some miscellaneous scripts I use from time to time.
 
+## tid-terminal
+
+Enable Touch ID authentication with sudo. The script uses macOS's built-in `bioutil` to check whether Touch ID is available. If so, it enables Touch ID authentication for `sudo` commands.
+
+**Note**: you'll have to re-run this script every time you update macOS because Apple overwrites `/etc/pam.d/sudo`
+
+If you want to do this manually, edit `/etc/pam.d/sudo` and make sure the first non-commented line is the following:
+
+```text
+auth       sufficient     pam_tid.so
+```
+
 ## wifi-strength
 
 Print out S/N ratio of current WiFi network using macOS's built-in `airport` command-line tool.

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+function is_touchid_enabled() {
+  bioutil -r | grep 'Touch ID for unlock' > /dev/null 2>&1
+}
+
+function is_pam_tid_enabled() {
+  grep -E '^auth[[:space:]]+sufficient[[:space:]]+pam_tid.so' /etc/pam.d/sudo > /dev/null 2>&1
+}
+
+if is_touchid_enabled && ! is_pam_tid_enabled; then
+  sudo sed -i '' -e '/^#.*/a\'$'\n''auth       sufficient     pam_tid.so' /etc/pam.d/sudo
+fi
